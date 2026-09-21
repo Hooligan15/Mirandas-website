@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Little Question ❤️</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Georgia, "Times New Roman", serif;
+    background:
+      radial-gradient(circle at top, rgba(255,255,255,.12), transparent 35%),
+      linear-gradient(135deg, #240018, #5b123d 48%, #190012);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .hearts { position: fixed; inset: 0; pointer-events:none; overflow:hidden; }
+  .heart {
+    position:absolute;
+    bottom:-40px;
+    font-size:20px;
+    opacity:.55;
+    animation: float 9s linear infinite;
+  }
+  @keyframes float {
+    from { transform: translateY(0) rotate(0deg); opacity:0; }
+    15% { opacity:.6; }
+    to { transform: translateY(-115vh) rotate(25deg); opacity:0; }
+  }
+  .card {
+    width:min(92%, 620px);
+    padding:42px 30px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:28px;
+    background:rgba(20,0,14,.68);
+    backdrop-filter: blur(12px);
+    box-shadow:0 25px 70px rgba(0,0,0,.45);
+    position:relative;
+    z-index:2;
+  }
+  .small { letter-spacing:4px; text-transform:uppercase; font-size:12px; opacity:.7; }
+  h1 { font-size:clamp(38px, 9vw, 68px); margin:16px 0 8px; }
+  .name { color:#ffb5d7; }
+  .story { font-family:Arial,sans-serif; line-height:1.7; color:#f8dce9; font-size:16px; }
+  .question {
+    margin:30px 0 24px;
+    font-size:clamp(23px, 5vw, 34px);
+    line-height:1.25;
+  }
+  button {
+    border:0;
+    border-radius:999px;
+    padding:15px 25px;
+    margin:7px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.2s transform, .2s box-shadow;
+  }
+  button:hover { transform:translateY(-2px); box-shadow:0 8px 22px rgba(255,130,190,.25); }
+  #yes { background:#ff78ad; color:#280018; }
+  #date { background:#fff; color:#4d1238; }
+  #response {
+    display:none;
+    margin-top:25px;
+    padding:22px;
+    border-radius:18px;
+    background:rgba(255,255,255,.09);
+    font-family:Arial,sans-serif;
+    line-height:1.6;
+  }
+  .footer { margin-top:30px; font-size:12px; opacity:.5; }
+</style>
+</head>
+<body>
+<div class="hearts" aria-hidden="true">
+  <span class="heart" style="left:8%;animation-delay:0s">♥</span>
+  <span class="heart" style="left:24%;animation-delay:2s">♥</span>
+  <span class="heart" style="left:43%;animation-delay:5s">♥</span>
+  <span class="heart" style="left:67%;animation-delay:1s">♥</span>
+  <span class="heart" style="left:87%;animation-delay:4s">♥</span>
+</div>
+
+<main class="card">
+  <div class="small">A little question for</div>
+  <h1><span class="name">Miranda</span> ❤️</h1>
+
+  <div class="story">
+    <p>2010 — two people met in high school.</p>
+    <p>2017 — somehow, life brought us back to each other.</p>
+    <p>2020 — we made it official and became husband and wife.</p>
+  </div>
+
+  <div class="question">
+    After everything we've been through...<br>
+    <strong>Do you still love me?</strong>
+  </div>
+
+  <button id="yes" onclick="answer('yes')">Yes ❤️</button>
+  <button id="date" onclick="answer('date')">Yes — now take me on a date 😉</button>
+
+  <div id="response"></div>
+
+  <div class="footer">Made with a whole lot of thought, just for you.</div>
+</main>
+
+<script>
+function answer(type) {
+  const box = document.getElementById("response");
+  box.style.display = "block";
+  if (type === "date") {
+    box.innerHTML = "Then it's a date. ❤️<br><br>Pick the day — I'll handle the rest.";
+  } else {
+    box.innerHTML = "Then that's all I needed to hear. ❤️<br><br>Now come here and let me take you on that date.";
+  }
+}
+</script>
+</body>
+</html>
